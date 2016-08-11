@@ -6,11 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "ProgressbarTAG_";
     private ProgressBar mProgressBar;
+    private TextView mTextView;
+    private int mCounter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mProgressBar = (ProgressBar) findViewById(R.id.main_progessbar);
+        mTextView = (TextView) findViewById(R.id.main_textview);
+
     }
 
     public void doMagic(View view) {
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "run: ");
                 mProgressBar.setVisibility(View.INVISIBLE);
                 handler.postDelayed(this, 1000);
+
+                mCounter++;
+                mTextView.setText(String.valueOf(mCounter));
             }
             //run log after 1000ms
         }, 1000);

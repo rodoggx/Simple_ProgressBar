@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
                 mCounter++;
                 mTextView.setText(String.valueOf(mCounter));
+
+                if (mCounter %2 == 0) {
+                    mProgressBar.setVisibility(View.VISIBLE);
+                } else mProgressBar.setVisibility(View.INVISIBLE);
             }
             //run log after 1000ms
         }, 1000);

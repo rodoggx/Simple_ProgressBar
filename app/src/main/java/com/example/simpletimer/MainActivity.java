@@ -21,13 +21,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void doMagic(View view) {
-        Handler handler = new Handler();
+        final Handler handler = new Handler();
 
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                mProgressBar.setVisibility(View.INVISIBLE);
                 Log.d(TAG, "run: ");
+                mProgressBar.setVisibility(View.INVISIBLE);
+                handler.postDelayed(this, 1000);
             }
             //run log after 1000ms
         }, 1000);
